@@ -12,9 +12,9 @@ public class Science {
         this.FinalExam = FinalExam;
     }
 
-    public int totalMark() {
+    public double totalMark() {
 
-        int total = Attendance + Project + Midterm + FinalExam;
+        double total = (Attendance * 0.1) + (Project * 0.3) + (Midterm * 0.3) + (FinalExam * 0.3);
 
         return total;
     }

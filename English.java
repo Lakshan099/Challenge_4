@@ -10,13 +10,18 @@ public class English {
         this.FinalExam = FinalExam;
     }
 
-    public int totalMark() {
+    public double totalMark() {
 
-        int total = TermPaper + Midterm + FinalExam;
+        double total = (TermPaper * 0.3) + (Midterm * 0.3) + (FinalExam * 0.4);
 
         return total;
     }
 
+    public double avgMark() {
 
+        double avg = (TermPaper + Midterm + FinalExam) / 3;
+
+        return avg;
+    }
 
 }

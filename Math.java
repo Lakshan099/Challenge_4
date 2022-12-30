@@ -21,9 +21,9 @@ public class Math {
         this.FinalExam = FinalExam;
     }
 
-    public int totalMark() {
+    public double totalMark() {
 
-        int total = quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5 + test_1 + test_2 + FinalExam;
+        double total = ((quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5) * 0.15) + (test_1 * 30) + (test_2 * 20) + (FinalExam * 35);
 
         return total;
     }
