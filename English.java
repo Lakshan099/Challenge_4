@@ -17,13 +17,6 @@ public class English {
         return total;
     }
 
-    public double avgMark() {
-
-        double avg = totalMark() / 3;
-
-        return Math.round(avg * 10) / 10.0;
-    }
-
 
 
 }
