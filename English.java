@@ -24,6 +24,6 @@ public class English {
         return Math.round(avg * 10) / 10.0;
     }
 
-    
+
 
 }
