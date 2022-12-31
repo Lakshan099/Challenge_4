@@ -1,4 +1,4 @@
-public class Math {
+public class Maths {
 
     private int quiz_1;
     private int quiz_2;
@@ -10,7 +10,7 @@ public class Math {
     private int test_2;
     private int FinalExam;
 
-    public Math(int quiz_1, int quiz_2, int quiz_3, int quiz_4, int quiz_5, int test_1, int test_2, int FinalExam) {
+    public Maths(int quiz_1, int quiz_2, int quiz_3, int quiz_4, int quiz_5, int test_1, int test_2, int FinalExam) {
         this.quiz_1 = quiz_1;
         this.quiz_2 = quiz_2;
         this.quiz_3 = quiz_3;
@@ -23,13 +23,10 @@ public class Math {
 
     public double totalMark() {
 
-        double total = ((quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5) * 0.15) + (test_1 * 30) + (test_2 * 20) + (FinalExam * 35);
+        double total = ((quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5) * 0.15) + (test_1 * 30) + (test_2 * 20)
+                + (FinalExam * 35);
 
         return total;
     }
 
-    
-
-
-    
 }
