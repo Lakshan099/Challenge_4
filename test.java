@@ -5,57 +5,108 @@ import java.io.IOException;
 public class test {
     public static void main(String[] args) {
 
+        String[] strArray = new String[256];
+        String[] subArray_E = new String[256];
+        String[] subArray_S = new String[256];
+        String[] subArray_M = new String[256];
+
+        ReadData("test.txt", strArray, ",");
+
+        for (int i = 0; i < 2; i++) {
+            System.out.println(strArray[i]);
+        }
+
+        ReadDataSub_E("test.txt", subArray_E, " ");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(subArray_E[i]);
+        }
+
+        ReadDataSub_S("test.txt", subArray_S, " ");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(subArray_S[i]);
+        }
+
+        ReadDataSub_M("test.txt", subArray_M, " ");
+
+        for (int i = 0; i < 10; i++) {
+            System.out.println(subArray_M[i]);
+        }
+
+    }
+
+    static void ReadData(String txtFile, String details[], String split) {
+
         try {
-            FileReader fr = new FileReader("test.txt");
+            FileReader fr = new FileReader(txtFile);
             BufferedReader br = new BufferedReader(fr);
-            String details[];
-            String Subject_E[];
-            String Subject_S[];
-            String Subject_M[];
+            String details1[];
+            String line = br.readLine();
+            int i = 0;
+
+            while (line != null) {
+
+                details1 = line.split(split);
+                details[i] = details1[i].trim();
+                details[i + 1] = details1[i + 1].trim();
+                line = br.readLine();
+                i++;
+                // System.out.println(i);
+            }
+
+            br.close();
+        } catch (IOException e1) {
+            System.out.println("Error in File reading!!!");
+        } catch (Exception e2) {
+            System.out.println("Error in processing!!!");
+        }
+
+    }
+
+    static void ReadDataSub_E(String txtFile, String details[], String split) {
+
+        try {
+            FileReader fr = new FileReader(txtFile);
+            BufferedReader br = new BufferedReader(fr);
+            String details1[];
             String line = br.readLine();
 
             while (line != null) {
 
-                details = line.split(",");
-
                 line = br.readLine();
-                Subject_E = line.split(" ");
-
-                Student s_E = new Student(details[0].trim(), details[1].trim(), Subject_E[0].trim());
-                System.out.println(s_E.getfName() + " " + s_E.getlName() + " " + s_E.getCourse());
-
-                English en1 = new English(Integer.parseInt(Subject_E[1].trim()), Integer.parseInt(Subject_E[2].trim()),
-                        Integer.parseInt(Subject_E[3].trim()));
-
-                for (int i = 1; i < 10; i++) {
-                    System.out.println(Subject_E[i]);
+                details1 = line.split(split);
+                for(int y=0; y<10; y++){
+                    details[y] = details1[y].trim();
                 }
+                
+            }
+
+            br.close();
+        } catch (IOException e1) {
+            System.out.println("Error in File reading!!!");
+        } catch (Exception e2) {
+            System.out.println("Error in processing!!!");
+        }
+
+    }
+
+    static void ReadDataSub_S(String txtFile, String details[], String split) {
+
+        try {
+            FileReader fr = new FileReader(txtFile);
+            BufferedReader br = new BufferedReader(fr);
+            String details1[];
+            String line = br.readLine();
+
+            while (line != null) {
 
                 line = br.readLine();
-                Subject_S = line.split(" ");
-
-                Student s_S = new Student(details[0].trim(), details[1].trim(), Subject_S[0].trim());
-                Science sc1 = new Science(Integer.parseInt(Subject_S[1].trim()), Integer.parseInt(Subject_S[2].trim()),
-                        Integer.parseInt(Subject_S[3].trim()), Integer.parseInt(Subject_S[4].trim()));
-
-                for (int i = 1; i < 10; i++) {
-                    System.out.println(Subject_S[i]);
+                line = br.readLine();
+                details1 = line.split(split);
+                for (int y = 0; y < 10; y++) {
+                    details[y] = details1[y].trim();
                 }
-
-                line = br.readLine();
-                Subject_M = line.split(" ");
-
-                Student s_M = new Student(details[0].trim(), details[1].trim(), Subject_M[0].trim());
-                Math m1 = new Math(Integer.parseInt(Subject_M[1].trim()), Integer.parseInt(Subject_M[2].trim()),
-                        Integer.parseInt(Subject_M[3].trim()), Integer.parseInt(Subject_M[4].trim()),
-                        Integer.parseInt(Subject_M[5].trim()), Integer.parseInt(Subject_M[6].trim()),
-                        Integer.parseInt(Subject_M[7].trim()), Integer.parseInt(Subject_M[8].trim()));
-
-                for (int i = 1; i < 10; i++) {
-                    System.out.println(Subject_M[i]);
-                }
-
-                line = br.readLine();
 
             }
 
@@ -67,4 +118,34 @@ public class test {
         }
 
     }
+
+    static void ReadDataSub_M(String txtFile, String details[], String split) {
+
+        try {
+            FileReader fr = new FileReader(txtFile);
+            BufferedReader br = new BufferedReader(fr);
+            String details1[];
+            String line = br.readLine();
+
+            while (line != null) {
+
+                line = br.readLine();
+                line = br.readLine();
+                line = br.readLine();
+                details1 = line.split(split);
+                for (int y = 0; y < 10; y++) {
+                    details[y] = details1[y].trim();
+                }
+
+            }
+
+            br.close();
+        } catch (IOException e1) {
+            System.out.println("Error in File reading!!!");
+        } catch (Exception e2) {
+            System.out.println("Error in processing!!!");
+        }
+
+    }
+
 }
