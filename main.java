@@ -11,6 +11,7 @@ public class Main {
         String[] subArray_E = new String[256];
         String[] subArray_S = new String[256];
         String[] subArray_M = new String[256];
+        String[] grade = new String[256];
 
         ReadData("test.txt", strArray, ",");
         ReadDataSub_E("test.txt", subArray_E, " ");
@@ -38,7 +39,28 @@ public class Main {
                 Integer.parseInt(subArray_M[7].trim()),
                 Integer.parseInt(subArray_M[8].trim()));
 
-        System.out.println(en1.avgMark());
+        System.out.println("Name: " + s_E.getfName() + " " + s_E.getlName());
+        System.out.println("-------------------------------------------");   
+        System.out.println(s_E.getCourse() + " Mark: " + en1.totalMark());
+        System.out.println("Grade: " + findGrade(en1.totalMark()));
+        System.out.println("-------------------------------------------");
+        System.out.println(s_S.getCourse() + " Mark: " + sc1.totalMark());
+        System.out.println("Grade: " + findGrade(sc1.totalMark()));
+        System.out.println("-------------------------------------------");
+        System.out.println(s_M.getCourse() + " Mark: " + m1.totalMark());
+        System.out.println("Grade: " + findGrade(m1.totalMark()));
+        System.out.println("-------------------------------------------");
+        System.out.println("Final AVG: " + calAvg(en1.totalMark(), sc1.totalMark(), m1.totalMark()));
+
+        storeGrade(grade,findGrade(en1.totalMark()),findGrade(sc1.totalMark()),findGrade(m1.totalMark()));
+
+        System.out.println("-------------------------------------------");
+
+        System.out.println("Grade Distribution ");
+
+        findGradeCount(grade);
+
+
 
     }
 
@@ -154,51 +176,68 @@ public class Main {
 
     }
 
-    static double calAvg(int totalMark, int subcount) {
+    static double calAvg(double sub1, double sub2, double sub3) {
 
-        double avg = totalMark / subcount;
+        double avg = (sub1 + sub2 + sub3) / 3;
 
-        return Math.round(avg * 10) / 10.0;
+        return Math.round(avg * 100) / 100.0;
 
     }
 
-    static String findGrade(int totalMark) {
-        if (totalMark > 90) {
+    static String findGrade(double totalMark) {
+        if (totalMark >= 90) {
             return "A";
-        } else if (totalMark > 80 && totalMark < 89) {
+        } else if (totalMark >= 80.0 && totalMark <= 89.0) {
             return "B";
-        } else if (totalMark > 70 && totalMark < 79) {
+        } else if (totalMark >= 70.0 && totalMark <= 79.0) {
             return "C";
-        } else if (totalMark > 60 && totalMark < 69) {
+        } else if (totalMark >= 60.0 && totalMark <= 69.0) {
             return "S";
         } else {
             return "F";
         }
     }
 
-    static void findGradeCount(String grade) {
+    static void storeGrade(String gradeList[], String sub1, String sub2, String sub3) {
+
+        gradeList[0] = sub1;
+        gradeList[1] = sub2;
+        gradeList[2] = sub3;
+
+    }
+
+    static void findGradeCount(String grade[]) {
         int A_count = 0, B_count = 0, C_count = 0, S_count = 0, F_count = 0;
 
-        switch (grade) {
-            case "A":
-                A_count++;
-            case "B":
-                B_count++;
-            case "C":
-                C_count++;
-            case "S":
-                S_count++;
-            case "F":
-                F_count++;
-            default:
-                System.out.println("Invalid Input");
+        for (int i = 0; i < 3; i++) {
+
+            switch (grade[i]) {
+                case "A":
+                    A_count++;
+                    break;
+                case "B":
+                    B_count++;
+                    break;
+                case "C":
+                    C_count++;
+                    break;
+                case "S":
+                    S_count++;
+                    break;
+                case "F":
+                    F_count++;
+                    break;
+                default:
+                    System.out.println("Invalid Input");
+            }
+
         }
 
-        System.out.println("A's" + A_count);
-        System.out.println("B's" + B_count);
-        System.out.println("C's" + C_count);
-        System.out.println("S's" + S_count);
-        System.out.println("F's" + F_count);
+        System.out.println("A's: " + A_count);
+        System.out.println("B's: " + B_count);
+        System.out.println("C's: " + C_count);
+        System.out.println("S's: " + S_count);
+        System.out.println("F's: " + F_count);
 
     }
 

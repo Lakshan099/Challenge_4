@@ -1,6 +1,6 @@
-Duck, Daffy
+Lakshan, Sandanayaka
 English 88 75 90
 Science 95 76 85 91
-Math 91 91 80 60 55 86 80 76
+Math 90 90 80 60 70 90 85 75
 
 

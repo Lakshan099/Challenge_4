@@ -23,8 +23,8 @@ public class Maths {
 
     public double totalMark() {
 
-        double total = ((quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5) * 0.15) + (test_1 * 30) + (test_2 * 20)
-                + (FinalExam * 35);
+        double total = (((quiz_1 + quiz_2 + quiz_3 + quiz_4 + quiz_5) / 5) * 0.15) + (test_1 * 0.3) + (test_2 * 0.2)
+                + (FinalExam * 0.35);
 
         return total;
     }
